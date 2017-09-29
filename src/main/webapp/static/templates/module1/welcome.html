@@ -1,0 +1,28 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>演示站点</h1>
+
+        <p>Angularjs配合Bootstrap站点演示,后台使用Spring MVC提供RESTFul服务器，shiro进行服务权限和登陆的管理，Mongodb进行数据的存储</p>
+
+        <p>
+            <a class="btn btn-primary btn-lg">Learn more</a>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class=" col-md-4 " ng-repeat="server in servers">
+        <div class="thumbnail">
+            <img data-src="3" alt="" src="/static/img/google.jpg">
+            <div class="caption">
+                <h3>{{server.desc}}</h3>
+                <p ng-repeat="conf in server.configuration.slice(0,3)">
+                    {{conf.key}}:{{conf.value}}
+                </p>
+                <p>
+                    <a href="/servers/{{server.id}}" class="btn btn-primary ">查看明细</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

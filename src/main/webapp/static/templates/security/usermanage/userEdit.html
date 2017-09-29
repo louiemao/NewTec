@@ -1,0 +1,39 @@
+<div class="alert alert-error" ng-show="error">
+    {{errorMessage}}
+</div>
+<form class="form-horizontal">
+    <legend>{{brand}}客户</legend>
+    <div class="control-group" ng-if="editMode">
+        <label class="control-label" for="userId" >用户编号：</label>
+        <div class="controls">
+            <input type="text" id="userId" ng-model="user.id" ng-disabled="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="userName" >用户名：</label>
+        <div class="controls">
+            <input type="text" id="userName" ng-model="user.username" maxlength="10">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="userPassword" >密码：</label>
+        <div class="controls">
+            <input type="password" id="userPassword" ng-model="user.password">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="userEmail">邮箱：</label>
+        <div class="controls">
+            <input type="email" id="userEmail" ng-model="user.email">
+        </div>
+    </div>
+    <div class="control-group">
+        <hr />
+        <div class="controls">
+            <button type="button" class="btn btn-success" ng-disabled="!user.username || !user.password" ng-hide="editMode" ng-click="createUser(user)">添加</button>
+            <button type="button" class="btn btn-success" ng-disabled="!user.username || !user.id || !user.password" ng-show="editMode" ng-click="updateUser(user)">保存</button>
+            <button type="button" class="btn btn-primary" ng-click="gotoUsersView()">返回</button>
+            <button type="button" class="btn" ng-click="resetUserForm()">重置</button>
+        </div>
+    </div>
+</form>

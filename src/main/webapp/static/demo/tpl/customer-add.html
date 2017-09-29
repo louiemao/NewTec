@@ -1,0 +1,28 @@
+<div class="container">
+<ol class="breadcrumb">
+	<li>
+		<a ui-sref="app.customers.list">客户列表</a>
+	</li>
+	<li class="active">{{brand}}</li>
+</ol>
+<form role="form">
+    <legend>{{brand}}客户</legend>
+
+    <div class="form-group">
+        <label>ID:</label>
+        <input type="text" class="form-control" ng-model="customer.id" placeholder="id" ng-disabled="true">
+    </div>
+
+    <div class="form-group">
+        <label>FirstName:</label>
+        <input type="text" class="form-control" ng-model="customer.firstName" placeholder="firstName">
+    </div>
+    <div class="form-group">
+        <label>LastName:</label>
+        <input type="text" class="form-control" ng-model="customer.lastName" placeholder="lastName">
+    </div>
+
+
+    <button type="submit" ng-disabled="incomplete" ng-click="saveCustomer()" class="btn btn-primary pull-right">提交</button>
+</form>
+</div>

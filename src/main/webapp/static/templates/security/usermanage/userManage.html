@@ -1,0 +1,38 @@
+<div class="row">
+
+    <div class="btn-toolbar pull-right" role="toolbar" >
+        <div class="btn-group">
+            <a ui-sref="app.user.add" class="btn btn-primary btn-sm" has-permission="'user:edit'">添加用户</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover ">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>注册时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="u in users | orderBy:'registerTime'">
+            <td>{{u.id}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.registerTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
+            <td>
+                <div class="btn-group">
+                    <a ui-sref="app.user.detail({id:u.id})" class="btn btn-default" has-permission="'user:edit'">编辑</a>
+                    <!--<button type="button" ng-if="u.id!='6e5afb1d-50e1-45fe-b6fe-b9e399415387'"-->
+                            <!--ng-click="removeUserById(u.id)" class="btn btn-danger" has-permission="'user:delete'">删除-->
+                    <!--</button>-->
+                    <button type="button"
+                            ng-click="removeUserById(u.id)" class="btn btn-danger" has-permission="'user:delete'">删除
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

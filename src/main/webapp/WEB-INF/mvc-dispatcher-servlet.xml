@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        ">
+    <context:component-scan base-package="com.sws.newtec">
+        <context:include-filter type="regex" expression=".web.*"/>
+        <context:include-filter type="regex" expression=".service.*"/>
+        <context:include-filter type="regex" expression=".dao.*"/>
+    </context:component-scan>
+    <!-- 扫描service自动注入为bean -->
+    <!--<context:component-scan base-package="com.sws.newtec.modules.security.service.impl,com.sws.newtec.modules.security.dao.impl" />-->
+
+    <!-- 默认情况下spring mvc暴露的 RESTFul服务会在客户端提示406的错误，需要增加下面的配置，且在pom中导入依赖的库文件-->
+    <!-- 以下为SpringMVC配置 -->
+    <mvc:annotation-driven>
+        <!-- 返回json数据，@response使用 -->
+        <mvc:message-converters register-defaults="true">
+            <bean
+                    class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <mvc:interceptors>
+        <bean class="com.sws.newtec.modules.security.controller.CurrentUserInterceptor"/>
+    </mvc:interceptors>
+    <mvc:resources mapping="/static/**" location="/static/" cache-period="0"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+
+</beans>

@@ -1,0 +1,50 @@
+<div id="page_signin" class="w-auto-xs text-center"
+     ng-controller="SigninFormController"
+     ng-init="app.settings.container = false;
+     app.settings.headerFixed=false;
+     app.settings.asideFixed=false;
+     app.settings.asideFolded=false;
+     app.settings.asideDock=false;
+     token.rememberMe=true;"
+     style="background-image:url(img/bg_signin.jpg);
+     -moz-background-size:100% 100%;
+     background-size:100% 100%;
+     background-repeat:no-repeat;
+     background-attachment: fixed;
+     overflow:auto;"
+     ng-style="myStyle">
+
+    <a href class="navbar-brand block m-t">{{app.name}}</a>
+
+    <div class="m-b-lg w-xxl" style="margin:0 auto;">
+        <div class="wrapper text-center">
+            <strong>Sign in to get in touch</strong>
+        </div>
+        <form name="form" class="form-validation">
+            <div class="text-danger wrapper text-center" ng-show="authError">
+                {{authError}}
+            </div>
+            <div class="list-group list-group-sm">
+                <div class="list-group-item">
+                    <input type="text" placeholder="用户名" class="form-control no-border" ng-model="token.username"
+                           required>
+                </div>
+                <div class="list-group-item">
+                    <input type="password" placeholder="密码" class="form-control no-border"
+                           ng-model="token.password" required>
+                </div>
+                <div class="list-group-item" style="display: none">
+                    <input type="checkbox" ng-model="token.rememberMe"> <span>Remember Me</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()"
+                    ng-disabled='form.$invalid'>登录
+            </button>
+            <!--<div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>-->
+            <!--<div class="line line-dashed"></div>-->
+            <!--<p class="text-center"><small>Do not have an account?</small></p>-->
+            <!--<a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>-->
+        </form>
+    </div>
+    <div class="text-center" style="position:absolute;bottom: 0px;width:100%;" ng-include="'tpl/blocks/page_footer.html'"></div>
+</div>

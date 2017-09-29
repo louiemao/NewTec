@@ -1,0 +1,46 @@
+[
+    {
+        "label": "我的服务器",
+        "link":"/servers",
+        "children":[
+            {
+                "label":"添加服务器",
+                "link":"/servers/add"
+            }
+        ]
+    },
+    {
+        "label": "我的客户",
+        "link":"/customers"
+    },
+    {
+        "label":"用户管理",
+        "link":"/usermanage"
+    },
+    {
+        "label":"Demo",
+        "children":[
+            {
+                "label":"火车",
+                "link":"/trainsview"
+            }
+        ]
+    },
+    {
+        "label": "常用链接",
+        "children": [
+            {
+                "label": "Google镜像",
+                "link":"https://clonegoogle.com"
+            },
+            {
+                "label": "百度",
+                "link": "https://www.baidu.com"
+            },
+            {
+                "label": "开源中国",
+                "link": "http://www.oschina.net"
+            }
+        ]
+    }
+]

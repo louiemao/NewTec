@@ -1,0 +1,81 @@
+[
+  {
+    "label": "Menu",
+    "children": [
+      {
+        "label": "服务器",
+        "icon":"glyphicon-fire",
+        "children": [
+          {
+            "label": "我的服务器",
+            "link": "app.servers.list"
+          },
+          {
+            "label": "添加服务器",
+            "link": "app.servers.add"
+          }
+        ]
+      },
+      {
+        "label": "我的客户",
+        "icon":"glyphicon-shopping-cart",
+        "link": "app.customers.list"
+      },
+      {
+        "label": "用户管理",
+        "icon":"glyphicon-adjust",
+        "link": "app.user.list"
+      },
+      {
+        "label": "常用链接",
+        "icon":"glyphicon-gift",
+        "children": [
+          {
+            "label": "Google镜像",
+            "link": "https://clonegoogle.com"
+          },
+          {
+            "label": "百度",
+            "link": "https://www.baidu.com"
+          },
+          {
+            "label": "开源中国",
+            "link": "http://www.oschina.net"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Level1",
+    "children": [
+      {
+        "label": "Level2",
+        "icon":"glyphicon-bookmark",
+        "children": [
+          {
+            "label": "Level3"
+          },
+          {
+            "label": "Level3"
+          },
+          {
+            "label": "Level3"
+          }
+        ]
+      },
+      {
+        "label": "Level2",
+        "icon":"glyphicon-tint",
+        "children": [
+          {
+            "label": "Level3"
+          },
+          {
+            "label": "Level3"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="btn-toolbar pull-right" role="toolbar">
+        <div class="btn-group">
+            <a ui-sref="app.customers.add"  class="btn btn-primary btn-sm">添加客户</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover ">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="c in customers">
+            <td>{{c.id}}</td>
+            <td>{{c.firstName}}</td>
+            <td>{{c.lastName}}</td>
+            <td>
+                <div class="btn-group">
+                    <a ui-sref="app.customers.detail({customer_id:c.id})"   class="btn btn-default">编辑</a>
+                    <button type="button" ng-click="deleteCustomer(c.id)"   class="btn btn-danger">删除</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
